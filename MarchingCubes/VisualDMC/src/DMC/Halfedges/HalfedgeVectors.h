@@ -562,7 +562,7 @@ namespace DMC {
 
 		inline void clear() {
 			// this must be called inside of a .cu file
-			const T invalidInfo;
+			T invalidInfo;
 			thrust::fill(d_infos.begin(), d_infos.end(), invalidInfo);
 			resetSize();
 		}
