@@ -1,9 +1,10 @@
-# Masters-Thesis Philipp Gürtler
+# Manifold Dual Marching Cubes
 
 ## Introduction
 
 This Repository's main project `VisualDMC` implements a post-process for the Dual Marching Cubes algorithm, that resolves non-manifold geometry.
 The code relies on the `C++17` standard and `CUDA 11.1`.
+It was written as the Masters-Thesis of Philipp Gürtler at Friedrich-Alexander-Universität Erlangen-Nürnberg.
 
 ## Setup
 
