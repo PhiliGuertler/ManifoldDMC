@@ -1,0 +1,2 @@
+add_subdirectory(LazyEngine)
+set_target_properties(LazyEngine PROPERTIES FOLDER LazyEngine)

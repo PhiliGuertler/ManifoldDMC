@@ -1,0 +1,13 @@
+# Binaries
+**/bin/
+**/bin-int/
+!vendor/bin/
+
+# Visual Studio files and folders
+.vs/
+**.sln
+**.vcxproj*
+**/imgui.ini
+
+# Linux Makefiles
+**/Makefile

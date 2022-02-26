@@ -1,0 +1,18 @@
+# ignore the CMake Build folder
+build/
+
+# ignore data folder contents, as it would take up too much memory
+data/*
+# don't ignore the minimum example
+!data/testDaten.bin
+
+#ignore visual studio files and folders
+.vs/
+.vscode/
+CMakeSettings.json
+
+# ignore exported meshes
+Meshes/*
+
+# ignore the extracted examples
+Data-And-Results
