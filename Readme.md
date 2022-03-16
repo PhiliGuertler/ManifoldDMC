@@ -87,4 +87,5 @@ Some of them have been altered slightly, which is why they are bundled in `LazyE
 
 ## Publication
 
-TODO: Add a reference to the paper here
+D. Zint, R. Grosso, P. Gürtler "Resolving Non-Manifoldness on Meshes from Dual Marching Cubes" Eurographics 2022 (accepted)
+
