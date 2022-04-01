@@ -32,6 +32,7 @@ endif()
 add_library(GLFW STATIC ${GLFW_SRC})
 target_include_directories(GLFW PUBLIC ${GLFW_INCLUDE_DIRS})
 target_compile_definitions(GLFW PUBLIC "_GLFW_WIN32")
+set_target_properties(GLFW PROPERTIES LINKER_LANGUAGE CXX)
 
 # group the source files in the same way in Visual Studio as on disk
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${GLFW_SRC})
