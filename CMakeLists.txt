@@ -1,9 +1,20 @@
 cmake_minimum_required(VERSION 3.18 FATAL_ERROR)
 
-project(MA_Guertler LANGUAGES CUDA C CXX)
-# Check if CUDA exists
-include(CheckLanguage)
-check_language(CUDA)
+if( CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR )
+    message( FATAL_ERROR "Please select another Build Directory ! (and give it a clever name, like bin_Visual2012_64bits/)" )
+endif()
+if( CMAKE_SOURCE_DIR MATCHES " " )
+	message( "Your Source Directory contains spaces. If you experience problems when compiling, this can be the cause." )
+endif()
+if( CMAKE_BINARY_DIR MATCHES " " )
+	message( "Your Build Directory contains spaces. If you experience problems when compiling, this can be the cause." )
+endif()
+
+project(ManifoldDMC LANGUAGES CUDA C CXX)
+
+# Set build types for multi/single-config generators
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release")
+set(CMAKE_CONFIGURATION_TYPE "Release")
 
 # Use C++17
 if(NOT DEFINED CMAKE_CXX_STANDARD)
@@ -25,7 +36,6 @@ endif()
 #### Turing Architecture: 75 (GTX 1660Ti, RTX 2080, RTX 2070, ...) ####
 #### Ampere Architecture: 86 (RTX 3090, RTX 3080, ...)             ####
 set(CMAKE_CUDA_ARCHITECTURES 75)
-set(CUDA_ARCHITECTURES 75)
 ####                                                               ####
 #######################################################################
 # Enables Linking of Device-Code, which means that device code does not need to be defined inline in headers
