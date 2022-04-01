@@ -60,6 +60,8 @@ namespace DMC {
 		void setHighlightIndices(const std::vector<uint32_t>& indices);
 		void setHighlightIndices(LazyEngine::Ref<LazyEngine::IndexBuffer> indices);
 
+		void setLightPosition(const glm::vec3& position);
+
 		// --- DMC's functions --- //
 		/**
 		 *	Resizes the vertex buffer.

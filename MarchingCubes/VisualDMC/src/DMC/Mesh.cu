@@ -196,6 +196,10 @@ namespace DMC {
 		m_material->setColor(glm::vec4(alpha));
 	}
 
+	void Mesh::setLightPosition(const glm::vec3& position) {
+		m_material->setLightPosition(position);
+	}
+
 	void Mesh::render() {
 		m_material->updateUniforms();
 		m_material->getShader()->bind();
