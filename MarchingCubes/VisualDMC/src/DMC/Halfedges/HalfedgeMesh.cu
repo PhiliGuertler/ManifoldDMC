@@ -1104,13 +1104,14 @@ namespace DMC {
 			// copy vertices with their respective colors into the vertex buffer
 			auto dataView = m_halfedges->getDataView();
 			insertVertices ToCudaArgs(dataView) (vertices, *m_halfedgeFaces, *m_halfedgeVertices, *m_halfedges, vertexBuffer);
+			cudaCheckError();
 		}
 
 		{
 			// copy halfedgeFaces into the index buffer
 			auto dataView = m_halfedgeFaces->getDataView();
 			insertHalfedgeFaceIndices ToCudaArgs(dataView) (*m_halfedges, *m_halfedgeFaces, indexBuffer);
-
+			cudaCheckError();
 		}
 		unsigned int numTriangles = m_halfedgeFaces->size() / 3;
 		return numTriangles;
