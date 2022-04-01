@@ -10,7 +10,7 @@ if( CMAKE_BINARY_DIR MATCHES " " )
 	message( "Your Build Directory contains spaces. If you experience problems when compiling, this can be the cause." )
 endif()
 
-project(ManifoldDMC LANGUAGES CUDA CXX)
+project(ManifoldDMC LANGUAGES CUDA C CXX)
 
 # Source file extensions do not have to be explicit (required for GLFW)
 cmake_policy(SET CMP0115 OLD)
