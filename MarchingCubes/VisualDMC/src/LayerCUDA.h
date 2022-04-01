@@ -73,6 +73,7 @@ namespace DMC {
 		void imFile();
 		void imMeshOptions();
 
+		void imLightingOptions();
 		void imCamera();
 
 		void imImplicitSurfaces();
@@ -238,6 +239,10 @@ namespace DMC {
 		float m_lineThickness;
 		float m_alphaValue;
 		
+		// --- Lighting Options --- //
+		glm::vec2 m_lightOffset;
+		bool m_snapLightingToCamera;
+
 		// --- Viewport Selection --- //
 		std::unique_ptr<Selection> m_selection;
 

@@ -78,6 +78,10 @@ namespace DMC {
 
 		m_alphaValue = 1.f;
 
+		// Initialize lighting options
+		m_lightOffset = glm::vec2(1.f, 1.f);
+		m_snapLightingToCamera = false;
+
 		// Initialize File-Browsers
 		m_fileDialog = ImGui::FileBrowser(ImGuiFileBrowserFlags_CloseOnEsc);
 		m_fileDialog.SetTitle("Load Uniform Grid");
@@ -147,6 +151,7 @@ namespace DMC {
 
 		ImGui::Begin("Mesh");
 		imMeshOptions();
+		imLightingOptions();
 		ImGui::End();
 
 		ImGui::Begin("Camera");
@@ -417,6 +422,27 @@ namespace DMC {
 		if (ImGui::SliderFloat("Alpha Value", &m_alphaValue, 0.f, 1.f)) {
 			m_mesh->setAlphaValue(m_alphaValue);
 		}
+	}
+
+	void DMCImGui::imLightingOptions() {
+		if (ImGui::Checkbox("Snap Light source to camera", &m_snapLightingToCamera)) {
+			if (!m_snapLightingToCamera) {
+				// Reset the light position to its default position
+				m_mesh->setLightPosition(glm::vec3(10.f, 10.f, 3.f));
+			}
+		}
+
+		ImGui::SliderFloat2("Light Source Offset", glm::value_ptr(m_lightOffset), -100.f, 100.f);
+
+		if (m_snapLightingToCamera) {
+			// Update the lighting if necessary
+			const glm::vec3 cameraPosition = m_currentCameraController.second->getPosition();
+			//m_mesh->setLightPosition(cameraPosition + glm::vec3(1.f, 1.f, 1.f) * glm::length(cameraPosition));
+			const glm::vec3 cameraOffset = m_currentCameraController.second->getOrientation() * glm::vec3(m_lightOffset, 0.f);
+			ImGui::Text("Light Source Offset: [%.2f, %.2f, %.2f]", VECCC(cameraOffset));
+			m_mesh->setLightPosition((cameraPosition + cameraOffset));
+		}
+
 	}
 
 	void DMCImGui::imCamera() {
