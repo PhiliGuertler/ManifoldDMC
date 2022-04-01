@@ -29,6 +29,9 @@ if(MSVC)
 	"src/osmesa_context.c")
 endif()
 
+# Source file extensions do not have to be explicit
+cmake_policy(SET CMP0115 OLD)
+
 add_library(GLFW STATIC ${GLFW_SRC})
 target_include_directories(GLFW PUBLIC ${GLFW_INCLUDE_DIRS})
 target_compile_definitions(GLFW PUBLIC "_GLFW_WIN32")
