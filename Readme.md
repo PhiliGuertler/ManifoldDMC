@@ -70,7 +70,7 @@ Warning: This representation is wrong if any of the post-processing steps are sk
 
 ## References
 
-The original implementation of the Dual Marching Cubes algorithm is taken from [here]https://github.com/rogrosso/tmc.
+The original implementation of the Dual Marching Cubes algorithm is taken from [here](https://github.com/rogrosso/tmc).
 It has been modified heavily to be integrated into a graphical user interface.
 
 ### External libraries
@@ -87,5 +87,5 @@ Some of them have been altered slightly, which is why they are bundled in `LazyE
 
 ## Publication
 
-D. Zint, R. Grosso, P. Gürtler "Resolving Non-Manifoldness on Meshes from Dual Marching Cubes" Eurographics 2022 (accepted)
+D. Zint, R. Grosso, P. Gürtler [Resolving Non-Manifoldness on Meshes from Dual Marching Cubes](https://diglib.eg.org/handle/10.2312/egs20221029) Eurographics 2022
 
